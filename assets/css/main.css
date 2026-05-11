@@ -33,9 +33,12 @@ body {
     letter-spacing: 2px;
 }
 
-#nav ul {
+#nav > ul {
     display: flex;
+    align-items: center;
+
     list-style: none;
+
     gap: 25px;
 }
 
@@ -49,8 +52,23 @@ body {
     color: #00bfff;
 }
 
+#nav img {
+    width: 32px;
+    height: 32px;
+
+    transition: 0.3s ease;
+}
+
 #nav img:hover {
-    color: #00bfff;
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(62%)
+        sepia(97%)
+        saturate(1868%)
+        hue-rotate(165deg)
+        brightness(101%)
+        contrast(101%);
 }
 
 /* Dropdown Menu */
