@@ -1,2 +1,2 @@
 # Art
-Art and Person Storefront
+Art and Personal Storefront
