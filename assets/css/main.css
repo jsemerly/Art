@@ -49,6 +49,68 @@ body {
     color: #00bfff;
 }
 
+#nav img:hover {
+    color: #00bfff;
+}
+
+/* Dropdown Menu */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background: rgba(20, 21, 29, 0.98);
+
+    min-width: 180px;
+
+    list-style: none;
+
+    padding: 10px 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition: 0.3s ease;
+
+    border-radius: 8px;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 20px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255,255,255,0.08);
+    color: #00bfff;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
 /* Banner */
 
 #banner {
