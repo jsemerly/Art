@@ -52,14 +52,16 @@ body {
     color: #00bfff;
 }
 
-#nav img {
+.cart-icon {
     width: 32px;
     height: 32px;
 
     transition: 0.3s ease;
 }
 
-#nav img:hover {
+/* Hover Effect */
+
+#nav a:hover .cart-icon {
     filter:
         brightness(0)
         saturate(100%)
@@ -69,6 +71,25 @@ body {
         hue-rotate(165deg)
         brightness(101%)
         contrast(101%);
+}
+
+/* Active Page Effect */
+
+.active-nav .cart-icon {
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(62%)
+        sepia(97%)
+        saturate(1868%)
+        hue-rotate(165deg)
+        brightness(101%)
+        contrast(101%);
+}
+
+.active-nav {
+    color: #00bfff !important;
+    font-weight: 700;
 }
 
 /* Dropdown Menu */
