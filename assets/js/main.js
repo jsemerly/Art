@@ -261,8 +261,9 @@ if (contactForm) {
             try {
 
                 await fetch(
-                    "https://script.google.com/macros/s/AKfycbyLsFrX5fdwXVBUEO-ebxO20ApjytjEfff9W_qIStGZTHlixgTaJ0e-WDbFZS4RMqpqeg/exec",
-                    {
+                    "https://script.google.com/macros/s/AKfycbwK2iJv9S7iNKd5TRnsopJv03i3EHrG4EGkyDdFaeQqMgar0fJusrzXt63R6aAHozSzyQ/exec",
+                                        {
+
 
                         method: "POST",
 
