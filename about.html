@@ -207,15 +207,9 @@
 
                 <!-- FORM -->
 
-                <!-- 
-                    FORMSPREE EXAMPLE:
-                    Replace YOUR_FORM_ID with your actual Formspree ID.
-                    This can email you instantly without exposing your email or number.
-                -->
-
+            
                 <form
-                    action="https://formspree.io/f/YOUR_FORM_ID"
-                    method="POST"
+                    id="contactForm"
                     class="contact-form"
                 >
 
@@ -249,6 +243,11 @@
                     >
                         Send Message
                     </button>
+
+                    <p
+                        id="formStatus"
+                        class="form-status"
+                    ></p>
 
                 </form>
 

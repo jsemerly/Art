@@ -218,3 +218,86 @@ if (
     updateFeaturedCarousel();
 
 }
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        async function (e) {
+
+            e.preventDefault();
+
+            const formStatus =
+                document.getElementById(
+                    "formStatus"
+                );
+
+            const formData = {
+
+                name:
+                    contactForm.name.value,
+
+                email:
+                    contactForm.email.value,
+
+                message:
+                    contactForm.message.value
+
+            };
+
+            try {
+
+                const response =
+                    await fetch(
+                        "https://script.google.com/macros/s/AKfycbyLsFrX5fdwXVBUEO-ebxO20ApjytjEfff9W_qIStGZTHlixgTaJ0e-WDbFZS4RMqpqeg/exec",
+                        {
+
+                            method: "POST",
+
+                            body:
+                                JSON.stringify(formData)
+
+                        }
+                    );
+
+                if (response.ok) {
+
+                    formStatus.textContent =
+                        "Message sent successfully.";
+
+                    formStatus.style.color =
+                        "#00bfff";
+
+                    contactForm.reset();
+
+                } else {
+
+                    formStatus.textContent =
+                        "Something went wrong.";
+
+                    formStatus.style.color =
+                        "#ff6b6b";
+
+                }
+
+            } catch (error) {
+
+                formStatus.textContent =
+                    "Connection error.";
+
+                formStatus.style.color =
+                    "#ff6b6b";
+
+            }
+
+        }
+    );
+
+}
