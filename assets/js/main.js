@@ -252,45 +252,47 @@ if (contactForm) {
 
             };
 
+            formStatus.textContent =
+                "Sending...";
+
+            formStatus.style.color =
+                "white";
+
             try {
 
-                const response =
-                    await fetch(
-                        "https://script.google.com/macros/s/AKfycbyLsFrX5fdwXVBUEO-ebxO20ApjytjEfff9W_qIStGZTHlixgTaJ0e-WDbFZS4RMqpqeg/exec",
-                        {
+                await fetch(
+                    "https://script.google.com/macros/s/AKfycbyLsFrX5fdwXVBUEO-ebxO20ApjytjEfff9W_qIStGZTHlixgTaJ0e-WDbFZS4RMqpqeg/exec",
+                    {
 
-                            method: "POST",
+                        method: "POST",
 
-                            body:
-                                JSON.stringify(formData)
+                        mode: "no-cors",
 
-                        }
-                    );
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
 
-                if (response.ok) {
+                        body:
+                            JSON.stringify(formData)
 
-                    formStatus.textContent =
-                        "Message sent successfully.";
+                    }
+                );
 
-                    formStatus.style.color =
-                        "#00bfff";
+                formStatus.textContent =
+                    "Message sent successfully.";
 
-                    contactForm.reset();
+                formStatus.style.color =
+                    "#00bfff";
 
-                } else {
-
-                    formStatus.textContent =
-                        "Something went wrong.";
-
-                    formStatus.style.color =
-                        "#ff6b6b";
-
-                }
+                contactForm.reset();
 
             } catch (error) {
 
+                console.error(error);
+
                 formStatus.textContent =
-                    "Connection error.";
+                    "Connection failed.";
 
                 formStatus.style.color =
                     "#ff6b6b";
