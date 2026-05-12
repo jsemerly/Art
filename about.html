@@ -1,53 +1,299 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
+
     <title>About</title>
+
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    />
 
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link
+        rel="stylesheet"
+        href="assets/css/main.css"
+    />
 
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
 </head>
+
 <body>
 
+    <!-- PAGE WRAPPER -->
 
- <!-- Page Wrapper -->
     <div id="page-wrapper">
 
-        <!-- Header -->
+        <!-- HEADER -->
+
         <header id="header" class="alt">
-            <h1><a href="index.html">Jacqueline</a></h1>
+
+            <h1>
+                <a href="index.html">
+                    Jacqueline
+                </a>
+            </h1>
 
             <nav id="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="shop.html">Shop</a>
 
-                        <ul class="dropdown-menu">
-                            <li><a href="jewelry.html">Jewelry</a></li>
-                            <li><a href="wall_art.html">Wall Art</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="featured.html">Featured</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="about.html" class="active-nav">About</a></li>
+                <ul>
+
                     <li>
-                        <a href="cart.html">
-                            <img src="assets/images/cart.png" alt="Cart" class="cart-icon">
+                        <a href="index.html">
+                            Home
                         </a>
                     </li>
+
+                    <li class="dropdown">
+
+                        <a href="shop.html">
+                            Shop
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a href="jewelry.html">
+                                    Jewelry
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="wall_art.html">
+                                    Wall Art
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a href="featured.html">
+                            Featured
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="gallery.html">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html" class="active-nav">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <a href="cart.html">
+
+                            <img
+                                src="assets/images/cart.png"
+                                alt="Cart"
+                                class="cart-icon"
+                            >
+
+                        </a>
+
+                    </li>
+
                 </ul>
+
             </nav>
+
         </header>
 
+        <!-- ABOUT SECTION -->
+
+        <section class="about-page">
+
+            <div class="about-container">
+
+                <!-- IMAGE -->
+
+                <div class="about-image">
+
+                    <img
+                        src="https://picsum.photos/700/900?portrait"
+                        alt="Jacqueline Semerly"
+                    >
+
+                </div>
+
+                <!-- CONTENT -->
+
+                <div class="about-content">
+
+                    <span class="about-label">
+                        Artist • Designer • Creator
+                    </span>
+
+                    <h2>
+                        Jacqueline Semerly
+                    </h2>
+
+                    <p>
+                        Jacqueline Semerly is a contemporary mixed-media
+                        artist whose work blends modern abstraction,
+                        texture, and emotional storytelling into visually
+                        immersive collections.
+                    </p>
+
+                    <p>
+                        Inspired by movement, architecture, coastal tones,
+                        and organic imperfections, her pieces are designed
+                        to create atmosphere while remaining deeply personal.
+                        Each collection explores contrast between softness
+                        and structure, minimalism and expression.
+                    </p>
+
+                    <p>
+                        Through both physical and digital mediums,
+                        Jacqueline focuses on creating timeless work
+                        that transforms spaces into experiences.
+                    </p>
+
+                    <!-- SOCIALS -->
+
+                    <div class="about-socials">
+
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                            Instagram
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+
+        <section class="contact-section">
+
+            <div class="contact-container">
+
+                <div class="contact-header">
+
+                    <h2>
+                        Get In Touch
+                    </h2>
+
+                    <p>
+                        For commissions, collaborations,
+                        or general inquiries.
+                    </p>
+
+                </div>
+
+                <!-- FORM -->
+
+                <!-- 
+                    FORMSPREE EXAMPLE:
+                    Replace YOUR_FORM_ID with your actual Formspree ID.
+                    This can email you instantly without exposing your email or number.
+                -->
+
+                <form
+                    action="https://formspree.io/f/YOUR_FORM_ID"
+                    method="POST"
+                    class="contact-form"
+                >
+
+                    <div class="form-row">
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                        >
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Your Email"
+                            required
+                        >
+
+                    </div>
+
+                    <textarea
+                        name="message"
+                        placeholder="Message"
+                        required
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="button primary"
+                    >
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+
+        <footer id="footer">
+
+            <ul class="icons">
+
+                <li>
+                    <a href="#" class="fa-brands fa-instagram"></a>
+                </li>
+
+                <li>
+                    <a href="#" class="fa-brands fa-x-twitter"></a>
+                </li>
+
+                <li>
+                    <a href="#" class="fa-brands fa-github"></a>
+                </li>
+
+            </ul>
+
+            <ul class="copyright">
+
+                <li>
+                    &copy; Jacqueline 2025
+                </li>
+
+                <li>
+                    Design adapted from HTML5 UP
+                </li>
+
+            </ul>
+
+        </footer>
+
     </div>
-    
+
     <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
