@@ -6,11 +6,25 @@
     box-sizing: border-box;
 }
 
+/* =========================
+   GLOBAL
+========================= */
+
 body {
     font-family: "Source Sans Pro", sans-serif;
+
     background: #1c1d26;
+
     color: white;
+
     line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
 }
 
 /* =========================
@@ -19,7 +33,9 @@ body {
 
 #header {
     position: fixed;
+
     width: 100%;
+
     padding: 20px 50px;
 
     display: flex;
@@ -28,11 +44,15 @@ body {
 
     background: rgba(0,0,0,0.5);
 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
     z-index: 999;
 }
 
 #header h1 a {
     color: white;
+
     text-decoration: none;
 
     font-size: 1.2rem;
@@ -46,6 +66,7 @@ body {
 
 #nav > ul {
     display: flex;
+
     align-items: center;
 
     list-style: none;
@@ -58,7 +79,7 @@ body {
 
     text-decoration: none;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 #nav a:hover {
@@ -82,8 +103,6 @@ body {
     transition: 0.3s ease;
 }
 
-/* Hover Effect */
-
 #nav a:hover .cart-icon {
     filter:
         brightness(0)
@@ -95,8 +114,6 @@ body {
         brightness(101%)
         contrast(101%);
 }
-
-/* Active Page Effect */
 
 .active-nav .cart-icon {
     filter:
@@ -155,7 +172,7 @@ body {
 
     text-decoration: none;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .dropdown-menu a:hover {
@@ -180,7 +197,10 @@ body {
     height: 100vh;
 
     background:
-        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        linear-gradient(
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)
+        ),
         url("https://picsum.photos/1920/1080?blur=1");
 
     background-size: cover;
@@ -222,7 +242,7 @@ body {
 
     margin-top: 20px;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .button:hover {
@@ -274,6 +294,17 @@ body {
     text-align: center;
 
     padding-bottom: 20px;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.35);
 }
 
 .product-card img {
@@ -416,7 +447,6 @@ body {
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
@@ -496,11 +526,9 @@ body {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     opacity: 0;
-
     visibility: hidden;
 
     transition: 0.35s ease;
@@ -508,15 +536,11 @@ body {
     z-index: 99999;
 }
 
-/* ACTIVE */
-
 .gallery-modal.active {
     opacity: 1;
 
     visibility: visible;
 }
-
-/* CONTENT */
 
 .gallery-modal-content {
     width: 90%;
@@ -538,8 +562,6 @@ body {
     position: relative;
 }
 
-/* MODAL IMAGE */
-
 .gallery-modal-content img {
     width: 55%;
 
@@ -549,8 +571,6 @@ body {
 
     border-radius: 10px;
 }
-
-/* TEXT */
 
 .gallery-modal-text {
     flex: 1;
@@ -580,14 +600,63 @@ body {
 
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .gallery-close:hover {
     color: #00bfff;
 }
 
-/* RESPONSIVE */
+/* =========================
+   FOOTER
+========================= */
+
+#footer {
+    padding: 60px;
+
+    text-align: center;
+
+    background: #14151d;
+
+    border-top:
+        1px solid rgba(255,255,255,0.06);
+}
+
+.icons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    list-style: none;
+
+    margin-bottom: 20px;
+}
+
+.icons a {
+    color: white;
+
+    font-size: 1.5rem;
+
+    transition: 0.3s ease;
+}
+
+.icons a:hover {
+    color: #00bfff;
+
+    transform: translateY(-2px);
+}
+
+.copyright {
+    list-style: none;
+
+    opacity: 0.7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media screen and (max-width: 1000px) {
 
@@ -614,6 +683,31 @@ body {
     .gallery-image {
         height: 400px;
     }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    #header {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    #nav ul {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    #banner .inner h2 {
+        font-size: 2.5rem;
+    }
+
+    .wrapper {
+        padding: 70px 25px;
+    }
+
 }
 
 @media screen and (max-width: 700px) {
