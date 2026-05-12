@@ -1,13 +1,24 @@
-// Simple scroll effect for header
+/* =========================
+   HEADER SCROLL EFFECT
+========================= */
 
 window.addEventListener("scroll", function () {
 
-    const header = document.getElementById("header");
+    const header =
+        document.getElementById("header");
+
+    if (!header) return;
 
     if (window.scrollY > 50) {
-        header.style.background = "rgba(0,0,0,0.9)";
+
+        header.style.background =
+            "rgba(0,0,0,0.9)";
+
     } else {
-        header.style.background = "rgba(0,0,0,0.5)";
+
+        header.style.background =
+            "rgba(0,0,0,0.5)";
+
     }
 
 });
@@ -34,48 +45,87 @@ const modalCaption =
 const closeButton =
     document.querySelector(".gallery-close");
 
-/* OPEN MODAL */
+/* ONLY RUN IF GALLERY EXISTS */
 
-galleryImages.forEach(image => {
+if (
+    galleryImages.length > 0 &&
+    modal &&
+    modalImage &&
+    modalTitle &&
+    modalCaption &&
+    closeButton
+) {
 
-    image.addEventListener("click", () => {
+    /* OPEN MODAL */
 
-        modal.classList.add("active");
+    galleryImages.forEach(image => {
 
-        modalImage.src = image.src;
+        image.addEventListener("click", () => {
 
-        modalTitle.textContent =
-            image.dataset.title;
+            modal.classList.add("active");
 
-        modalCaption.textContent =
-            image.dataset.caption;
+            modalImage.src =
+                image.src;
 
-        document.body.style.overflow = "hidden";
+            modalTitle.textContent =
+                image.dataset.title;
+
+            modalCaption.textContent =
+                image.dataset.caption;
+
+            document.body.style.overflow =
+                "hidden";
+
+        });
 
     });
 
-});
+    /* CLOSE BUTTON */
 
-/* CLOSE BUTTON */
+    closeButton.addEventListener("click", () => {
 
-closeButton.addEventListener("click", () => {
+        closeModal();
+
+    });
+
+    /* CLICK OUTSIDE */
+
+    modal.addEventListener("click", (e) => {
+
+        if (e.target === modal) {
+
+            closeModal();
+
+        }
+
+    });
+
+    /* ESC KEY */
+
+    document.addEventListener("keydown", (e) => {
+
+        if (
+            e.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+
+            closeModal();
+
+        }
+
+    });
+
+}
+
+/* =========================
+   CLOSE MODAL FUNCTION
+========================= */
+
+function closeModal() {
 
     modal.classList.remove("active");
 
-    document.body.style.overflow = "auto";
+    document.body.style.overflow =
+        "auto";
 
-});
-
-/* CLICK OUTSIDE */
-
-modal.addEventListener("click", (e) => {
-
-    if (e.target === modal) {
-
-        modal.classList.remove("active");
-
-        document.body.style.overflow = "auto";
-
-    }
-
-});
+}

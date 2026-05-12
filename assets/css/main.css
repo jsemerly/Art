@@ -13,25 +13,36 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
 
 #header {
     position: fixed;
     width: 100%;
     padding: 20px 50px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     background: rgba(0,0,0,0.5);
+
     z-index: 999;
 }
 
 #header h1 a {
     color: white;
     text-decoration: none;
+
     font-size: 1.2rem;
+
     letter-spacing: 2px;
 }
+
+/* =========================
+   NAVIGATION
+========================= */
 
 #nav > ul {
     display: flex;
@@ -44,13 +55,25 @@ body {
 
 #nav a {
     color: white;
+
     text-decoration: none;
+
     transition: 0.3s;
 }
 
 #nav a:hover {
     color: #00bfff;
 }
+
+.active-nav {
+    color: #00bfff !important;
+
+    font-weight: 700;
+}
+
+/* =========================
+   CART ICON
+========================= */
 
 .cart-icon {
     width: 32px;
@@ -87,12 +110,9 @@ body {
         contrast(101%);
 }
 
-.active-nav {
-    color: #00bfff !important;
-    font-weight: 700;
-}
-
-/* Dropdown Menu */
+/* =========================
+   DROPDOWN MENU
+========================= */
 
 .dropdown {
     position: relative;
@@ -100,6 +120,7 @@ body {
 
 .dropdown-menu {
     position: absolute;
+
     top: 100%;
     left: 0;
 
@@ -139,66 +160,86 @@ body {
 
 .dropdown-menu a:hover {
     background: rgba(255,255,255,0.08);
+
     color: #00bfff;
 }
 
 .dropdown:hover .dropdown-menu {
     opacity: 1;
+
     visibility: visible;
 
     transform: translateY(0);
 }
 
-
-/* Banner */
+/* =========================
+   BANNER
+========================= */
 
 #banner {
     height: 100vh;
+
     background:
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
         url("https://picsum.photos/1920/1080?blur=1");
+
     background-size: cover;
     background-position: center;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
 }
 
 #banner .inner h2 {
     font-size: 4rem;
+
     letter-spacing: 4px;
 }
 
 #banner p {
     margin-top: 20px;
+
     font-size: 1.2rem;
 }
 
-/* Buttons */
+/* =========================
+   BUTTONS
+========================= */
 
 .button {
     display: inline-block;
+
     padding: 12px 30px;
+
     border: 2px solid white;
+
     color: white;
+
     text-decoration: none;
+
     margin-top: 20px;
+
     transition: 0.3s;
 }
 
 .button:hover {
     background: white;
+
     color: black;
 }
 
 .primary {
     background: #00bfff;
+
     border: none;
 }
 
-/* Sections */
+/* =========================
+   GENERAL SECTIONS
+========================= */
 
 .wrapper {
     padding: 100px 60px;
@@ -206,27 +247,38 @@ body {
 
 .major {
     text-align: center;
+
     margin-bottom: 60px;
 }
 
-/* Product Grid */
+/* =========================
+   PRODUCT GRID
+========================= */
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
     gap: 30px;
 }
 
 .product-card {
     background: #2b2d3a;
+
     border-radius: 10px;
+
     overflow: hidden;
+
     text-align: center;
+
     padding-bottom: 20px;
 }
 
 .product-card img {
     width: 100%;
+
     display: block;
 }
 
@@ -236,75 +288,34 @@ body {
 
 .product-card p {
     margin-top: 10px;
+
     color: #00bfff;
 }
 
-/* Spotlight */
+/* =========================
+   SPOTLIGHT
+========================= */
 
 .spotlight {
     display: flex;
+
     align-items: center;
+
     gap: 50px;
+
     flex-wrap: wrap;
 }
 
 .spotlight .image img {
     width: 100%;
+
     max-width: 500px;
+
     border-radius: 10px;
 }
 
 .spotlight .content {
     flex: 1;
-}
-
-/* Footer */
-
-#footer {
-    padding: 60px;
-    text-align: center;
-    background: #14151d;
-}
-
-.icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    list-style: none;
-    margin-bottom: 20px;
-}
-
-.icons a {
-    color: white;
-    font-size: 1.5rem;
-}
-
-.copyright {
-    list-style: none;
-    opacity: 0.7;
-}
-
-/* Responsive */
-
-@media screen and (max-width: 768px) {
-
-    #header {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    #nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    #banner .inner h2 {
-        font-size: 2.5rem;
-    }
-
-    .wrapper {
-        padding: 70px 25px;
-    }
 }
 
 /* =========================
@@ -317,16 +328,19 @@ body {
 
 .gallery-header {
     text-align: center;
+
     margin-bottom: 60px;
 }
 
 .gallery-header h2 {
     font-size: 3rem;
+
     letter-spacing: 3px;
 }
 
 .gallery-header p {
     margin-top: 10px;
+
     opacity: 0.7;
 }
 
@@ -335,8 +349,7 @@ body {
 .gallery-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 35px;
 }
@@ -345,7 +358,14 @@ body {
 
 .gallery-item {
     display: flex;
+
     flex-direction: column;
+
+    transition: transform 0.35s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-6px);
 }
 
 /* IMAGE WRAPPER */
@@ -364,6 +384,7 @@ body {
 
 .gallery-image {
     width: 100%;
+
     height: 500px;
 
     object-fit: cover;
@@ -395,7 +416,6 @@ body {
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
@@ -423,22 +443,54 @@ body {
     opacity: 1;
 }
 
-/* TITLE BELOW IMAGE */
+/* TITLE SECTION */
 
 .gallery-title {
     margin-top: 18px;
 
     text-align: center;
 
-    font-size: 1rem;
-
     letter-spacing: 1px;
 
     opacity: 0.9;
 }
 
+.gallery-name {
+    display: block;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+}
+
+.gallery-collection {
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    opacity: 0.55;
+}
+
+.gallery-caption-preview {
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+
+    opacity: 0.72;
+}
+
 /* =========================
-   MODAL
+   GALLERY MODAL
 ========================= */
 
 .gallery-modal {
@@ -448,16 +500,15 @@ body {
 
     background: rgba(0,0,0,0.78);
 
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     opacity: 0;
-
     visibility: hidden;
 
     transition: 0.35s ease;
@@ -477,6 +528,7 @@ body {
 
 .gallery-modal-content {
     width: 90%;
+
     max-width: 1300px;
 
     display: flex;
@@ -543,7 +595,53 @@ body {
     color: #00bfff;
 }
 
-/* RESPONSIVE */
+/* =========================
+   FOOTER
+========================= */
+
+#footer {
+    padding: 60px;
+
+    text-align: center;
+
+    background: #14151d;
+}
+
+.icons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    list-style: none;
+
+    margin-bottom: 20px;
+}
+
+.icons a {
+    color: white;
+
+    font-size: 1.5rem;
+}
+
+.copyright {
+    list-style: none;
+
+    opacity: 0.7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media screen and (max-width: 1000px) {
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
 
 @media screen and (max-width: 900px) {
 
@@ -561,6 +659,42 @@ body {
 
     .gallery-image {
         height: 400px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    #header {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    #nav ul {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    #banner .inner h2 {
+        font-size: 2.5rem;
+    }
+
+    .wrapper {
+        padding: 70px 25px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-section {
+        padding: 120px 25px 80px;
     }
 
 }
