@@ -129,3 +129,92 @@ function closeModal() {
         "auto";
 
 }
+
+/* =========================
+   FEATURED CAROUSEL
+========================= */
+
+const featuredTrack =
+    document.getElementById("featuredTrack");
+
+const prevButton =
+    document.getElementById("prevBtn");
+
+const nextButton =
+    document.getElementById("nextBtn");
+
+if (
+    featuredTrack &&
+    prevButton &&
+    nextButton
+) {
+
+    let currentIndex = 0;
+
+    const products =
+        document.querySelectorAll(".featured-product");
+
+    function visibleCards() {
+
+        if (window.innerWidth <= 700) {
+            return 1;
+        }
+
+        if (window.innerWidth <= 1000) {
+            return 2;
+        }
+
+        return 3;
+
+    }
+
+    function updateFeaturedCarousel() {
+
+        const product =
+            products[0];
+
+        const gap = 30;
+
+        const width =
+            product.offsetWidth + gap;
+
+        featuredTrack.style.transform =
+            `translateX(-${currentIndex * width}px)`;
+
+    }
+
+    nextButton.addEventListener("click", () => {
+
+        const maxIndex =
+            products.length - visibleCards();
+
+        if (currentIndex < maxIndex) {
+
+            currentIndex++;
+
+            updateFeaturedCarousel();
+
+        }
+
+    });
+
+    prevButton.addEventListener("click", () => {
+
+        if (currentIndex > 0) {
+
+            currentIndex--;
+
+            updateFeaturedCarousel();
+
+        }
+
+    });
+
+    window.addEventListener(
+        "resize",
+        updateFeaturedCarousel
+    );
+
+    updateFeaturedCarousel();
+
+}
