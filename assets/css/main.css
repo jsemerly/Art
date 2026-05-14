@@ -354,405 +354,6 @@ img {
 }
 
 /* =========================
-   GALLERY
-========================= */
-
-.gallery-section {
-    padding: 140px 60px 100px;
-}
-
-.gallery-header {
-    text-align: center;
-
-    margin-bottom: 60px;
-}
-
-.gallery-header h2 {
-    font-size: 3rem;
-
-    letter-spacing: 3px;
-}
-
-.gallery-header p {
-    margin-top: 10px;
-
-    opacity: 0.7;
-}
-
-.gallery-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 35px;
-}
-
-.gallery-item {
-    display: flex;
-
-    flex-direction: column;
-
-    transition: transform 0.35s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-6px);
-}
-
-.gallery-image-wrapper {
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 12px;
-
-    cursor: pointer;
-}
-
-.gallery-image {
-    width: 100%;
-
-    height: 500px;
-
-    object-fit: cover;
-
-    display: block;
-
-    transition:
-        transform 0.5s ease,
-        filter 0.5s ease;
-}
-
-.gallery-image-wrapper:hover .gallery-image {
-    transform: scale(1.05);
-
-    filter: brightness(0.45);
-}
-
-.gallery-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 30px;
-
-    opacity: 0;
-
-    transition: 0.4s ease;
-}
-
-.gallery-overlay h3 {
-    font-size: 1.5rem;
-
-    margin-bottom: 10px;
-}
-
-.gallery-overlay p {
-    max-width: 320px;
-
-    opacity: 0.85;
-
-    line-height: 1.6;
-}
-
-.gallery-overlay-collection {
-    display: block;
-
-    margin-bottom: 14px;
-
-    font-size: 0.75rem;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    opacity: 0.7;
-}
-
-.gallery-image-wrapper:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-title {
-    margin-top: 18px;
-
-    text-align: center;
-}
-
-.gallery-name {
-    display: block;
-
-    font-size: 1rem;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.gallery-modal {
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(0,0,0,0.78);
-
-    -webkit-backdrop-filter: blur(10px);
-
-    backdrop-filter: blur(10px);
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: 0.35s ease;
-
-    z-index: 99999;
-}
-
-.gallery-modal.active {
-    opacity: 1;
-
-    visibility: visible;
-}
-
-.gallery-modal-content {
-    width: 90%;
-
-    max-width: 1300px;
-
-    display: flex;
-
-    gap: 50px;
-
-    align-items: center;
-
-    background: #1f2029;
-
-    border-radius: 16px;
-
-    padding: 40px;
-
-    position: relative;
-}
-
-.gallery-modal-content img {
-    width: 55%;
-
-    max-height: 80vh;
-
-    object-fit: contain;
-
-    border-radius: 10px;
-}
-
-.gallery-modal-text {
-    flex: 1;
-}
-
-.gallery-modal-text h2 {
-    font-size: 2.5rem;
-
-    margin-bottom: 20px;
-}
-
-.gallery-modal-text p {
-    opacity: 0.8;
-
-    line-height: 1.8;
-}
-
-.gallery-close {
-    position: absolute;
-
-    top: 20px;
-    right: 30px;
-
-    font-size: 2.5rem;
-
-    cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
-.gallery-close:hover {
-    color: #00bfff;
-}
-
-/* =========================
-   FEATURED PAGE
-========================= */
-
-.featured-page {
-    padding:
-        170px 80px 120px;
-}
-
-.featured-header {
-    text-align: center;
-
-    margin-bottom: 55px;
-}
-
-.featured-header h2 {
-    font-size: 3rem;
-
-    letter-spacing: 3px;
-}
-
-.featured-header p {
-    margin-top: 14px;
-
-    opacity: 0.7;
-}
-
-/* =========================
-   FEATURED CAROUSEL
-========================= */
-
-.featured-carousel-container {
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    max-width: 1400px;
-
-    margin: 0 auto;
-}
-
-.featured-viewport {
-    overflow: hidden;
-
-    width: 100%;
-}
-
-.featured-track {
-    display: flex;
-
-    gap: 30px;
-
-    transition: transform 0.45s ease;
-}
-
-.featured-product {
-    min-width: calc((100% - 60px) / 3);
-
-    background: #2b2d3a;
-
-    border-radius: 14px;
-
-    overflow: hidden;
-
-    padding-bottom: 25px;
-
-    text-align: center;
-
-    flex-shrink: 0;
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.featured-product:hover {
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,0.35);
-}
-
-.featured-product img {
-    width: 100%;
-
-    height: 260px;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-.featured-product h3 {
-    margin-top: 22px;
-
-    font-size: 1.15rem;
-}
-
-.featured-product span {
-    display: block;
-
-    margin-top: 8px;
-
-    font-size: 0.72rem;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    opacity: 0.55;
-}
-
-.featured-product p {
-    margin-top: 14px;
-
-    color: #00bfff;
-
-    font-size: 1rem;
-}
-
-.featured-product .button {
-    margin-top: 18px;
-}
-
-/* =========================
-   CAROUSEL ARROWS
-========================= */
-
-.carousel-arrow {
-    width: 52px;
-    height: 52px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.08);
-
-    color: white;
-
-    font-size: 1.3rem;
-
-    cursor: pointer;
-
-    transition: 0.3s ease;
-
-    flex-shrink: 0;
-}
-
-.carousel-arrow:hover {
-    background: #00bfff;
-
-    transform: scale(1.05);
-}
-
-/* =========================
    FOOTER
 ========================= */
 
@@ -800,37 +401,261 @@ img {
 }
 
 /* =========================
+   SKETCHBOOK
+========================= */
+
+.sketchbook-page {
+    padding:
+        170px 60px 120px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255,255,255,0.03),
+            transparent 40%
+        );
+}
+
+.sketchbook-header {
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+.sketchbook-header span {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 4px;
+
+    opacity: 0.55;
+}
+
+.sketchbook-header h2 {
+    font-size: 4rem;
+
+    letter-spacing: 4px;
+}
+
+.sketchbook-header p {
+    margin-top: 16px;
+
+    opacity: 0.72;
+
+    max-width: 700px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================
+   SKETCHBOARD GRID
+========================= */
+
+.sketchboard {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 40px;
+
+    align-items: start;
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+}
+
+/* =========================
+   SKETCH ITEMS
+========================= */
+
+.sketch-item {
+    position: relative;
+
+    display: inline-block;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    background: #f4efe5;
+
+    padding: 18px;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.28);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.sketch-item:hover {
+    transform:
+        translateY(-8px)
+        scale(1.01);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   PAPER TEXTURE
+========================= */
+
+.sketch-item::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+
+    opacity: 0.14;
+
+    mix-blend-mode: multiply;
+
+    pointer-events: none;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.sketch-item img {
+    width: 100%;
+
+    display: block;
+
+    border-radius: 2px;
+
+    filter:
+        contrast(1.02)
+        saturate(0.95);
+}
+
+/* =========================
+   CAPTION
+========================= */
+
+.sketch-caption {
+    margin-top: 18px;
+
+    color: #1c1d26;
+}
+
+.sketch-caption h3 {
+    font-size: 1.1rem;
+
+    margin-bottom: 8px;
+
+    letter-spacing: 1px;
+}
+
+.sketch-caption p {
+    opacity: 0.72;
+
+    line-height: 1.7;
+
+    font-size: 0.95rem;
+}
+
+/* =========================
+   TAPE
+========================= */
+
+.tape {
+    position: absolute;
+
+    top: -10px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    width: 110px;
+    height: 28px;
+
+    background:
+        rgba(255,255,255,0.28);
+
+    backdrop-filter: blur(4px);
+
+    z-index: 5;
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   ROTATION
+========================= */
+
+.rotate-left {
+    transform: rotate(-2deg);
+}
+
+.rotate-right {
+    transform: rotate(2deg);
+}
+
+.rotate-left:hover,
+.rotate-right:hover {
+    transform:
+        rotate(0deg)
+        translateY(-8px)
+        scale(1.01);
+}
+
+/* =========================
+   STAGGERED LOOK
+========================= */
+
+.sketch-item:nth-child(2) {
+    margin-top: 40px;
+}
+
+.sketch-item:nth-child(5) {
+    margin-top: -20px;
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
 
 @media screen and (max-width: 1000px) {
 
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .featured-product {
-        min-width: calc((100% - 30px) / 2);
+    .sketchboard {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
 }
 
 @media screen and (max-width: 900px) {
 
-    .gallery-modal-content {
-        flex-direction: column;
+    .sketchbook-page {
+        padding:
+            150px 25px 80px;
     }
 
-    .gallery-modal-content img {
-        width: 100%;
-    }
-
-    .gallery-modal-text {
-        text-align: center;
-    }
-
-    .gallery-image {
-        height: 400px;
+    .sketchbook-header h2 {
+        font-size: 2.8rem;
     }
 
 }
@@ -861,497 +686,14 @@ img {
 
 @media screen and (max-width: 700px) {
 
-    .gallery-grid {
+    .sketchboard {
         grid-template-columns: 1fr;
+
+        gap: 30px;
     }
 
-    .gallery-section {
-        padding: 120px 25px 80px;
+    .sketch-item:nth-child(2),
+    .sketch-item:nth-child(5) {
+        margin-top: 0;
     }
-
-    .featured-page {
-        padding:
-            150px 25px 80px;
-    }
-
-    .featured-carousel-container {
-        gap: 12px;
-    }
-
-    .featured-product {
-        min-width: 100%;
-    }
-
-    .carousel-arrow {
-        width: 42px;
-        height: 42px;
-
-        font-size: 1rem;
-    }
-
 }
-
-/* =========================
-   ABOUT PAGE
-========================= */
-
-.about-page {
-    padding:
-        170px 80px 100px;
-}
-
-.about-container {
-    display: flex;
-
-    align-items: center;
-
-    gap: 80px;
-
-    max-width: 1400px;
-
-    margin: 0 auto;
-}
-
-/* IMAGE */
-
-.about-image {
-    flex: 1;
-}
-
-.about-image img {
-    width: 100%;
-
-    border-radius: 18px;
-
-    object-fit: cover;
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.35);
-}
-
-/* CONTENT */
-
-.about-content {
-    flex: 1;
-}
-
-.about-label {
-    display: inline-block;
-
-    margin-bottom: 18px;
-
-    font-size: 0.8rem;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    opacity: 0.6;
-}
-
-.about-content h2 {
-    font-size: 3.5rem;
-
-    line-height: 1.1;
-
-    margin-bottom: 30px;
-}
-
-.about-content p {
-    margin-bottom: 22px;
-
-    opacity: 0.82;
-
-    font-size: 1.05rem;
-
-    line-height: 1.9;
-}
-
-/* SOCIALS */
-
-.about-socials {
-    display: flex;
-
-    gap: 25px;
-
-    margin-top: 35px;
-}
-
-.about-socials a {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    color: white;
-
-    text-decoration: none;
-
-    transition: 0.3s ease;
-}
-
-.about-socials a:hover {
-    color: #00bfff;
-}
-
-/* =========================
-   CONTACT SECTION
-========================= */
-
-.contact-section {
-    padding:
-        40px 80px 120px;
-}
-
-.contact-container {
-    max-width: 1100px;
-
-    margin: 0 auto;
-
-    background: #232532;
-
-    border-radius: 18px;
-
-    padding: 70px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.25);
-}
-
-/* HEADER */
-
-.contact-header {
-    text-align: center;
-
-    margin-bottom: 50px;
-}
-
-.contact-header h2 {
-    font-size: 2.8rem;
-
-    margin-bottom: 15px;
-}
-
-.contact-header p {
-    opacity: 0.7;
-}
-
-/* FORM */
-
-.contact-form {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 25px;
-}
-
-.form-row {
-    display: flex;
-
-    gap: 25px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-
-    padding: 18px 22px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    background: #1c1d26;
-
-    color: white;
-
-    font-family: inherit;
-
-    font-size: 1rem;
-
-    outline: none;
-
-    transition: 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    box-shadow:
-        0 0 0 2px #00bfff;
-}
-
-.contact-form textarea {
-    min-height: 180px;
-
-    resize: vertical;
-}
-
-.contact-form button {
-    align-self: flex-start;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media screen and (max-width: 1000px) {
-
-    .about-container {
-        flex-direction: column;
-    }
-
-    .about-content h2 {
-        font-size: 2.8rem;
-    }
-
-    .form-row {
-        flex-direction: column;
-    }
-
-}
-
-@media screen and (max-width: 700px) {
-
-    .about-page {
-        padding:
-            150px 25px 70px;
-    }
-
-    .contact-section {
-        padding:
-            20px 25px 80px;
-    }
-
-    .contact-container {
-        padding: 40px 25px;
-    }
-
-    .about-content h2 {
-        font-size: 2.3rem;
-    }
-
-    .about-socials {
-        flex-direction: column;
-
-        gap: 18px;
-    }
-
-}
-
-.form-status {
-    margin-top: 18px;
-
-    font-size: 0.95rem;
-
-    opacity: 0.9;
-}
-
-/* =========================
-   COLLECTIONS PAGE
-========================= */
-
-.collections-page {
-    padding:
-        170px 80px 120px;
-}
-
-.collections-header {
-    text-align: center;
-
-    margin-bottom: 70px;
-}
-
-.collections-header h2 {
-    font-size: 3rem;
-
-    letter-spacing: 3px;
-}
-
-.collections-header p {
-    margin-top: 15px;
-
-    opacity: 0.7;
-}
-
-/* GRID */
-
-.collections-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 35px;
-
-    max-width: 1400px;
-
-    margin: 0 auto;
-}
-
-/* CARD */
-
-.collection-card {
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 18px;
-
-    min-height: 650px;
-
-    text-decoration: none;
-
-    color: white;
-
-    background: #222;
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-.collection-card:hover {
-    transform: translateY(-8px);
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.4);
-}
-
-/* IMAGE */
-
-.collection-card img {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.5s ease,
-        filter 0.5s ease;
-}
-
-.collection-card:hover img {
-    transform: scale(1.05);
-
-    filter: brightness(0.4);
-}
-
-/* OVERLAY */
-
-.collection-card-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: flex-end;
-
-    padding: 45px;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.88),
-            rgba(0,0,0,0.08)
-        );
-}
-
-.collection-card-overlay span {
-    font-size: 0.78rem;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    opacity: 0.65;
-
-    margin-bottom: 14px;
-}
-
-.collection-card-overlay h3 {
-    font-size: 2.2rem;
-
-    margin-bottom: 16px;
-}
-
-.collection-card-overlay p {
-    max-width: 500px;
-
-    line-height: 1.8;
-
-    opacity: 0.82;
-}
-
-/* BUTTON */
-
-.collection-button {
-    margin-top: 30px;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: fit-content;
-
-    padding: 12px 24px;
-
-    border:
-        1px solid rgba(255,255,255,0.25);
-
-    border-radius: 999px;
-
-    font-size: 0.9rem;
-
-    letter-spacing: 1px;
-
-    transition: 0.3s ease;
-}
-
-.collection-card:hover .collection-button {
-    background: #00bfff;
-
-    border-color: #00bfff;
-}
-
-/* RESPONSIVE */
-
-@media screen and (max-width: 1000px) {
-
-    .collections-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-@media screen and (max-width: 700px) {
-
-    .collections-page {
-        padding:
-            150px 25px 80px;
-    }
-
-    .collection-card {
-        min-height: 520px;
-    }
-
-    .collection-card-overlay {
-        padding: 30px;
-    }
-
-    .collection-card-overlay h3 {
-        font-size: 1.8rem;
-    } 
-
-}
-
