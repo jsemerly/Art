@@ -117,9 +117,7 @@ if (
 
 }
 
-/* =========================
-   CLOSE MODAL FUNCTION
-========================= */
+/* CLOSE MODAL FUNCTION */
 
 function closeModal() {
 
@@ -262,8 +260,7 @@ if (contactForm) {
 
                 await fetch(
                     "https://script.google.com/macros/s/AKfycbwK2iJv9S7iNKd5TRnsopJv03i3EHrG4EGkyDdFaeQqMgar0fJusrzXt63R6aAHozSzyQ/exec",
-                                        {
-
+                    {
 
                         method: "POST",
 
@@ -305,7 +302,6 @@ if (contactForm) {
 
 }
 
-
 /* =========================
    SKETCHBOOK FLIPBOOK
 ========================= */
@@ -327,46 +323,102 @@ if (
 
     let currentLocation = 0;
 
+    let isTurning = false;
+
     const totalPages =
         papers.length;
 
-    /* STACKING */
+    /* STACKING + DEPTH */
 
     papers.forEach((paper, index) => {
 
         paper.style.zIndex =
             totalPages - index;
 
+        paper.style.transform =
+            `translateX(${index * 1.5}px)`;
+
     });
 
-    /* NEXT */
+    /* TURN PAGE */
 
-    nextPageBtn.addEventListener("click", () => {
+    function nextPage() {
 
-        if (currentLocation < totalPages) {
+        if (
+            currentLocation >= totalPages ||
+            isTurning
+        ) return;
 
-            papers[currentLocation]
-                .classList.add("flipped");
+        isTurning = true;
 
-            currentLocation++;
+        papers[currentLocation]
+            .classList.add("flipped");
+
+        currentLocation++;
+
+        setTimeout(() => {
+
+            isTurning = false;
+
+        }, 1000);
+
+    }
+
+    /* PREVIOUS PAGE */
+
+    function prevPage() {
+
+        if (
+            currentLocation <= 0 ||
+            isTurning
+        ) return;
+
+        isTurning = true;
+
+        currentLocation--;
+
+        papers[currentLocation]
+            .classList.remove("flipped");
+
+        setTimeout(() => {
+
+            isTurning = false;
+
+        }, 1000);
+
+    }
+
+    /* BUTTON EVENTS */
+
+    nextPageBtn.addEventListener(
+        "click",
+        nextPage
+    );
+
+    prevPageBtn.addEventListener(
+        "click",
+        prevPage
+    );
+
+    /* KEYBOARD SUPPORT */
+
+    document.addEventListener(
+        "keydown",
+        (e) => {
+
+            if (e.key === "ArrowRight") {
+
+                nextPage();
+
+            }
+
+            if (e.key === "ArrowLeft") {
+
+                prevPage();
+
+            }
 
         }
-
-    });
-
-    /* PREVIOUS */
-
-    prevPageBtn.addEventListener("click", () => {
-
-        if (currentLocation > 0) {
-
-            currentLocation--;
-
-            papers[currentLocation]
-                .classList.remove("flipped");
-
-        }
-
-    });
+    );
 
 }
