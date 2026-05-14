@@ -304,3 +304,69 @@ if (contactForm) {
     );
 
 }
+
+
+/* =========================
+   SKETCHBOOK FLIPBOOK
+========================= */
+
+const papers =
+    document.querySelectorAll(".paper");
+
+const prevPageBtn =
+    document.getElementById("prevPage");
+
+const nextPageBtn =
+    document.getElementById("nextPage");
+
+if (
+    papers.length > 0 &&
+    prevPageBtn &&
+    nextPageBtn
+) {
+
+    let currentLocation = 0;
+
+    const totalPages =
+        papers.length;
+
+    /* STACKING */
+
+    papers.forEach((paper, index) => {
+
+        paper.style.zIndex =
+            totalPages - index;
+
+    });
+
+    /* NEXT */
+
+    nextPageBtn.addEventListener("click", () => {
+
+        if (currentLocation < totalPages) {
+
+            papers[currentLocation]
+                .classList.add("flipped");
+
+            currentLocation++;
+
+        }
+
+    });
+
+    /* PREVIOUS */
+
+    prevPageBtn.addEventListener("click", () => {
+
+        if (currentLocation > 0) {
+
+            currentLocation--;
+
+            papers[currentLocation]
+                .classList.remove("flipped");
+
+        }
+
+    });
+
+}
