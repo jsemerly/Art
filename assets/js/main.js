@@ -45,18 +45,15 @@ const modalCaption =
 const closeButton =
     document.querySelector(".gallery-close");
 
-/* ONLY RUN IF GALLERY EXISTS */
+/* OPEN MODAL */
 
 if (
     galleryImages.length > 0 &&
     modal &&
     modalImage &&
     modalTitle &&
-    modalCaption &&
-    closeButton
+    modalCaption
 ) {
-
-    /* OPEN MODAL */
 
     galleryImages.forEach(image => {
 
@@ -68,10 +65,10 @@ if (
                 image.src;
 
             modalTitle.textContent =
-                image.dataset.title;
+                image.dataset.title || "";
 
             modalCaption.textContent =
-                image.dataset.caption;
+                image.dataset.caption || "";
 
             document.body.style.overflow =
                 "hidden";
@@ -80,51 +77,39 @@ if (
 
     });
 
-    /* CLOSE BUTTON */
+}
+
+/* CLOSE BUTTON */
+
+if (closeButton && modal) {
 
     closeButton.addEventListener("click", () => {
 
-        closeModal();
+        modal.classList.remove("active");
 
-    });
-
-    /* CLICK OUTSIDE */
-
-    modal.addEventListener("click", (e) => {
-
-        if (e.target === modal) {
-
-            closeModal();
-
-        }
-
-    });
-
-    /* ESC KEY */
-
-    document.addEventListener("keydown", (e) => {
-
-        if (
-            e.key === "Escape" &&
-            modal.classList.contains("active")
-        ) {
-
-            closeModal();
-
-        }
+        document.body.style.overflow =
+            "auto";
 
     });
 
 }
 
-/* CLOSE MODAL FUNCTION */
+/* CLICK OUTSIDE */
 
-function closeModal() {
+if (modal) {
 
-    modal.classList.remove("active");
+    modal.addEventListener("click", (e) => {
 
-    document.body.style.overflow =
-        "auto";
+        if (e.target === modal) {
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow =
+                "auto";
+
+        }
+
+    });
 
 }
 
@@ -132,25 +117,41 @@ function closeModal() {
    FEATURED CAROUSEL
 ========================= */
 
-const featuredTrack =
-    document.getElementById("featuredTrack");
+const carouselContainers =
+    document.querySelectorAll(
+        ".featured-carousel-container"
+    );
 
-const prevButton =
-    document.getElementById("prevBtn");
+carouselContainers.forEach(container => {
 
-const nextButton =
-    document.getElementById("nextBtn");
+    const track =
+        container.querySelector(
+            ".featured-track"
+        );
 
-if (
-    featuredTrack &&
-    prevButton &&
-    nextButton
-) {
+    const prevButton =
+        container.querySelector(
+            ".carousel-prev"
+        );
 
-    let currentIndex = 0;
+    const nextButton =
+        container.querySelector(
+            ".carousel-next"
+        );
 
     const products =
-        document.querySelectorAll(".featured-product");
+        container.querySelectorAll(
+            ".featured-product"
+        );
+
+    if (
+        !track ||
+        !prevButton ||
+        !nextButton ||
+        products.length === 0
+    ) return;
+
+    let currentIndex = 0;
 
     function visibleCards() {
 
@@ -166,56 +167,59 @@ if (
 
     }
 
-    function updateFeaturedCarousel() {
-
-        const product =
-            products[0];
+    function updateCarousel() {
 
         const gap = 30;
 
         const width =
-            product.offsetWidth + gap;
+            products[0].offsetWidth + gap;
 
-        featuredTrack.style.transform =
+        track.style.transform =
             `translateX(-${currentIndex * width}px)`;
 
     }
 
-    nextButton.addEventListener("click", () => {
+    nextButton.addEventListener(
+        "click",
+        () => {
 
-        const maxIndex =
-            products.length - visibleCards();
+            const maxIndex =
+                products.length - visibleCards();
 
-        if (currentIndex < maxIndex) {
+            if (currentIndex < maxIndex) {
 
-            currentIndex++;
+                currentIndex++;
 
-            updateFeaturedCarousel();
+                updateCarousel();
 
-        }
-
-    });
-
-    prevButton.addEventListener("click", () => {
-
-        if (currentIndex > 0) {
-
-            currentIndex--;
-
-            updateFeaturedCarousel();
+            }
 
         }
+    );
 
-    });
+    prevButton.addEventListener(
+        "click",
+        () => {
+
+            if (currentIndex > 0) {
+
+                currentIndex--;
+
+                updateCarousel();
+
+            }
+
+        }
+    );
 
     window.addEventListener(
         "resize",
-        updateFeaturedCarousel
+        updateCarousel
     );
 
-    updateFeaturedCarousel();
+    updateCarousel();
 
-}
+});
 
 /* =========================
    CONTACT FORM
@@ -223,6 +227,9 @@ if (
 
 const contactForm =
     document.getElementById("contactForm");
+
+const formStatus =
+    document.getElementById("formStatus");
 
 if (contactForm) {
 
@@ -232,71 +239,80 @@ if (contactForm) {
 
             e.preventDefault();
 
-            const formStatus =
-                document.getElementById(
-                    "formStatus"
-                );
+            const formData =
+                new FormData(contactForm);
 
-            const formData = {
+            const data = {
 
                 name:
-                    contactForm.name.value,
+                    formData.get("name"),
 
                 email:
-                    contactForm.email.value,
+                    formData.get("email"),
 
                 message:
-                    contactForm.message.value
+                    formData.get("message")
 
             };
 
-            formStatus.textContent =
-                "Sending...";
-
-            formStatus.style.color =
-                "white";
-
             try {
 
-                await fetch(
-                    "https://script.google.com/macros/s/AKfycbwK2iJv9S7iNKd5TRnsopJv03i3EHrG4EGkyDdFaeQqMgar0fJusrzXt63R6aAHozSzyQ/exec",
-                    {
+                const response =
+                    await fetch(
+                        "YOUR_GOOGLE_SCRIPT_URL_HERE",
+                        {
 
-                        method: "POST",
+                            method: "POST",
 
-                        mode: "no-cors",
+                            mode: "cors",
 
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
+                            headers: {
+                                "Content-Type":
+                                    "text/plain"
+                            },
 
-                        body:
-                            JSON.stringify(formData)
+                            body:
+                                JSON.stringify(data)
 
-                    }
-                );
+                        }
+                    );
 
-                formStatus.textContent =
-                    "Message sent successfully.";
+                const result =
+                    await response.json();
 
-                formStatus.style.color =
-                    "#00bfff";
+                if (
+                    result.result === "success"
+                ) {
 
-                contactForm.reset();
+                    formStatus.textContent =
+                        "Message sent successfully.";
+
+                    formStatus.style.color =
+                        "#00bfff";
+
+                    contactForm.reset();
+
+                } else {
+
+                    formStatus.textContent =
+                        "Something went wrong.";
+
+                    formStatus.style.color =
+                        "red";
+
+                }
 
             } catch (error) {
-
-                console.error(error);
 
                 formStatus.textContent =
                     "Connection failed.";
 
                 formStatus.style.color =
-                    "#ff6b6b";
+                    "red";
 
             }
 
         }
     );
+
 }
