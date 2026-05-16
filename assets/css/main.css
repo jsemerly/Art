@@ -411,9 +411,13 @@ img {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(300px, 1fr));
+        repeat(2, 1fr);
 
-    gap: 30px;
+    gap: 40px;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
 }
 
 .collection-card {
@@ -831,6 +835,16 @@ img {
 
     .featured-product {
         min-width: calc((100% - 30px) / 2);
+    }
+
+}
+
+/* COLLECTIONS MOBILE */
+
+@media screen and (max-width: 900px) {
+
+    .collections-grid {
+        grid-template-columns: 1fr;
     }
 
 }
