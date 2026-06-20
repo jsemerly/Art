@@ -1117,3 +1117,17 @@ img {
     }
 
 }
+
+/* =========================
+   HOME GALLERY BUTTON
+========================= */
+
+.home-gallery-button {
+    margin-top: 18px;
+
+    padding: 9px 22px;
+
+    font-size: 0.85rem;
+
+    align-self: flex-start;
+}
