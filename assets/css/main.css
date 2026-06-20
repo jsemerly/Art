@@ -930,9 +930,7 @@ img {
 .back-link {
     display: block;
 
-    max-width: 950px;
-
-    margin: 0 auto 24px;
+    margin: 0 0 24px 0;
 
     color: white;
 
@@ -1006,7 +1004,7 @@ img {
     font-size: 0.75rem;
 
     margin-top: 0;
-    
+
     color: rgb(52, 52, 52);
 }
 
