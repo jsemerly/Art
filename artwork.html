@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Gallery</title>
+    <title>Artwork</title>
 
     <meta charset="utf-8" />
 
@@ -118,28 +118,81 @@
 
         </header>
 
-        <!-- GALLERY -->
+        <!-- ARTWORK DETAIL PAGE -->
 
-        <section class="gallery-section">
+        <section
+            class="artwork-page"
+            id="artworkPage"
+        >
 
-            <div class="gallery-header">
+            <a
+                href="gallery.html"
+                class="back-link"
+            >
+                &lt; Back to Gallery
+            </a>
 
-                <h2>
-                    Gallery
-                </h2>
+            <div class="artwork-detail">
 
-                <p>
-                    Explore a curated selection of original artworks.
-                </p>
+                <h2 id="artworkTitle"></h2>
+
+                <div
+                    class="artwork-collection"
+                    id="artworkCollection"
+                ></div>
+
+                <img
+                    id="artworkImage"
+                    class="artwork-detail-image"
+                    src=""
+                    alt=""
+                >
+
+                <p
+                    class="artwork-detail-caption"
+                    id="artworkCaption"
+                ></p>
+
+                <button
+                    type="button"
+                    class="button small"
+                    id="readMoreButton"
+                >
+                    Read More
+                </button>
 
             </div>
 
-            <div
-                class="gallery-grid"
-                id="galleryGrid"
-            ></div>
-
         </section>
+
+        <!-- READ MORE MODAL -->
+
+        <div
+            class="artwork-modal-overlay"
+            id="artworkModal"
+        >
+
+            <div class="artwork-modal-card">
+
+                <h2 id="modalArtworkTitle"></h2>
+
+                <h3 id="modalArtworkCollection"></h3>
+
+                <p
+                    class="modal-artwork-caption"
+                    id="modalArtworkCaption"
+                ></p>
+
+                <hr>
+
+                <p
+                    class="modal-artwork-notes"
+                    id="modalArtworkNotes"
+                ></p>
+
+            </div>
+
+        </div>
 
         <!-- FOOTER -->
 

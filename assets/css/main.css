@@ -903,3 +903,217 @@ img {
     }
 
 }
+
+/* =========================
+   GALLERY LINKS
+========================= */
+
+.gallery-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.gallery-link:hover {
+    color: white;
+}
+
+/* =========================
+   ARTWORK DETAIL PAGE
+========================= */
+
+.artwork-page {
+    padding: 120px 40px 70px;
+    min-height: 720px;
+}
+
+.back-link {
+    display: block;
+
+    max-width: 950px;
+
+    margin: 0 auto 24px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    opacity: 0.9;
+
+    transition: 0.3s ease;
+}
+
+.back-link:hover {
+    color: #00bfff;
+    opacity: 1;
+}
+
+.artwork-detail {
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.artwork-detail h2 {
+    font-size: 1.8rem;
+
+    line-height: 1.1;
+
+    margin-bottom: 4px;
+}
+
+.artwork-collection {
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    opacity: 0.9;
+
+    margin-bottom: 26px;
+}
+
+.artwork-detail-image {
+    display: block;
+
+    width: min(100%, 520px);
+
+    margin: 0 auto 24px;
+
+    border-radius: 0;
+}
+
+.artwork-detail-caption {
+    max-width: 680px;
+
+    margin: 0 auto 22px;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+.button.small {
+    padding: 8px 22px;
+
+    font-size: 0.75rem;
+
+    margin-top: 0;
+}
+
+/* =========================
+   ARTWORK READ MORE POPUP
+========================= */
+
+.artwork-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px;
+
+    background: rgba(0,0,0,0.78);
+
+    z-index: 7000;
+}
+
+.artwork-modal-overlay.active {
+    display: flex;
+}
+
+.artwork-modal-card {
+    width: min(520px, 92vw);
+
+    max-height: 72vh;
+
+    overflow-y: auto;
+
+    background: #e7e1e5;
+
+    color: #111;
+
+    padding: 30px 36px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,0.5);
+}
+
+.artwork-modal-card h2 {
+    color: #111;
+
+    font-size: 1.65rem;
+
+    line-height: 1.1;
+
+    margin-bottom: 5px;
+}
+
+.artwork-modal-card h3 {
+    color: #111;
+
+    font-size: 1.05rem;
+
+    margin-bottom: 25px;
+}
+
+.modal-artwork-caption {
+    font-size: 1rem;
+
+    line-height: 1.45;
+
+    margin-bottom: 22px;
+}
+
+.artwork-modal-card hr {
+    border: none;
+
+    border-top:
+        1px solid rgba(0,0,0,0.25);
+
+    margin: 0 0 18px;
+}
+
+.modal-artwork-notes {
+    font-size: 0.92rem;
+
+    line-height: 1.45;
+}
+
+/* =========================
+   ARTWORK PAGE MOBILE
+========================= */
+
+@media screen and (max-width: 768px) {
+
+    .artwork-page {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .artwork-detail h2 {
+        font-size: 1.5rem;
+    }
+
+    .artwork-detail-image {
+        width: 100%;
+    }
+
+    .artwork-modal-card {
+        padding: 26px 24px;
+    }
+
+}
