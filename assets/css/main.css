@@ -1131,3 +1131,13 @@ img {
 
     align-self: flex-start;
 }
+
+/* =========================
+   READ MORE BUTTON HOVER
+========================= */
+
+.button.small:hover {
+    background: #9dc183;
+    border-color: #9dc183;
+    color: #111;
+}
