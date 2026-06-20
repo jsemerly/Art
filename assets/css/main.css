@@ -1034,7 +1034,7 @@ img {
 }
 
 .artwork-modal-card {
-    width: min(520px, 92vw);
+    width: min(700px, 92vw);
 
     max-height: 72vh;
 
