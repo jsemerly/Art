@@ -1,145 +1,156 @@
 <!DOCTYPE HTML>
+
 <html>
 
 <head>
 
-    <title>Artwork</title>
+```
+<title>Artwork</title>
 
-    <meta charset="utf-8" />
+<meta charset="utf-8" />
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    />
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+/>
 
-    <link
-        rel="stylesheet"
-        href="assets/css/main.css"
-    />
+<link
+    rel="stylesheet"
+    href="assets/css/main.css"
+/>
 
-    <!-- Font Awesome -->
+<!-- Font Awesome -->
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+```
 
 </head>
 
 <body>
 
-    <div id="page-wrapper">
+```
+<div id="page-wrapper">
 
-        <!-- HEADER -->
+    <!-- HEADER -->
 
-        <header id="header" class="alt">
+    <header id="header" class="alt">
 
-            <h1>
-                <a href="index.html">
-                    Jacqueline
-                </a>
-            </h1>
-
-            <nav id="nav">
-
-                <ul>
-
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-
-                    <li class="dropdown">
-
-                        <a href="shop.html">
-                            Shop
-                        </a>
-
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="jewelry.html">
-                                    Jewelry
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="wall_art.html">
-                                    Wall Art
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-                        <a href="featured.html">
-                            Featured
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="collections.html">
-                            Collections
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="gallery.html" class="active-nav">
-                            Gallery
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-
-                        <a href="cart.html">
-
-                            <img
-                                src="assets/images/cart.png"
-                                alt="Cart"
-                                class="cart-icon"
-                            >
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </nav>
-
-        </header>
-
-        <!-- ARTWORK DETAIL PAGE -->
-
-        <section
-            class="artwork-page"
-            id="artworkPage"
-        >
-
-            <a
-                href="gallery.html"
-                class="back-link"
-            >
-                &lt; Back to Gallery
+        <h1>
+            <a href="index.html">
+                Jacqueline
             </a>
+        </h1>
 
-            <div class="artwork-detail">
+        <nav id="nav">
 
-                <h2 id="artworkTitle"></h2>
+            <ul>
 
-                <div
-                    class="artwork-collection"
-                    id="artworkCollection"
-                ></div>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="dropdown">
+
+                    <a href="shop.html">
+                        Shop
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="jewelry.html">
+                                Jewelry
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="wall_art.html">
+                                Wall Art
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="featured.html">
+                        Featured
+                    </a>
+                </li>
+
+                <li>
+                    <a href="collections.html">
+                        Collections
+                    </a>
+                </li>
+
+                <li>
+                    <a href="gallery.html" class="active-nav">
+                        Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+
+                    <a href="cart.html">
+
+                        <img
+                            src="assets/images/cart.png"
+                            alt="Cart"
+                            class="cart-icon"
+                        >
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ARTWORK DETAIL PAGE -->
+
+    <section
+        class="artwork-page"
+        id="artworkPage"
+    >
+
+        <a
+            href="gallery.html"
+            class="back-link"
+        >
+            &lt; Back to Gallery
+        </a>
+
+        <div class="artwork-detail">
+
+            <h2 id="artworkTitle"></h2>
+
+            <div
+                class="artwork-collection"
+                id="artworkCollection"
+            ></div>
+
+            <button
+                type="button"
+                class="artwork-image-button"
+                id="artworkImageButton"
+                aria-label="View artwork larger"
+            >
 
                 <img
                     id="artworkImage"
@@ -148,89 +159,112 @@
                     alt=""
                 >
 
-                <p
-                    class="artwork-detail-caption"
-                    id="artworkCaption"
-                ></p>
+            </button>
 
-                <button
-                    type="button"
-                    class="button small"
-                    id="readMoreButton"
-                >
-                    Read More
-                </button>
+            <p class="artwork-zoom-note">
+                Click the image for a closer look.
+            </p>
 
-            </div>
+            <p
+                class="artwork-detail-caption"
+                id="artworkCaption"
+            ></p>
 
-        </section>
-
-        <!-- READ MORE MODAL -->
-
-        <div
-            class="artwork-modal-overlay"
-            id="artworkModal"
-        >
-
-            <div class="artwork-modal-card">
-
-                <h2 id="modalArtworkTitle"></h2>
-
-                <h3 id="modalArtworkCollection"></h3>
-
-                <p
-                    class="modal-artwork-caption"
-                    id="modalArtworkCaption"
-                ></p>
-
-                <hr>
-
-                <p
-                    class="modal-artwork-notes"
-                    id="modalArtworkNotes"
-                ></p>
-
-            </div>
+            <button
+                type="button"
+                class="button small"
+                id="readMoreButton"
+            >
+                Read More
+            </button>
 
         </div>
 
-        <!-- FOOTER -->
+    </section>
 
-        <footer id="footer">
+    <!-- READ MORE MODAL -->
 
-            <ul class="icons">
+    <div
+        class="artwork-modal-overlay"
+        id="artworkModal"
+    >
 
-                <li>
-                    <a href="#" class="fa-brands fa-instagram"></a>
-                </li>
+        <div class="artwork-modal-card">
 
-                <li>
-                    <a href="#" class="fa-brands fa-x-twitter"></a>
-                </li>
+            <h2 id="modalArtworkTitle"></h2>
 
-                <li>
-                    <a href="#" class="fa-brands fa-github"></a>
-                </li>
+            <h3 id="modalArtworkCollection"></h3>
 
-            </ul>
+            <p
+                class="modal-artwork-caption"
+                id="modalArtworkCaption"
+            ></p>
 
-            <ul class="copyright">
+            <hr>
 
-                <li>
-                    &copy; Jacqueline 2025
-                </li>
+            <p
+                class="modal-artwork-notes"
+                id="modalArtworkNotes"
+            ></p>
 
-                <li>
-                    Design adapted from HTML5 UP
-                </li>
-
-            </ul>
-
-        </footer>
+        </div>
 
     </div>
 
-    <script src="assets/js/main.js"></script>
+    <!-- ARTWORK IMAGE ZOOM MODAL -->
+
+    <div
+        class="artwork-image-modal-overlay"
+        id="artworkImageModal"
+    >
+
+        <img
+            id="zoomArtworkImage"
+            class="artwork-zoom-image"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+                <a href="#" class="fa-brands fa-instagram"></a>
+            </li>
+
+            <li>
+                <a href="#" class="fa-brands fa-x-twitter"></a>
+            </li>
+
+            <li>
+                <a href="#" class="fa-brands fa-github"></a>
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>
+                &copy; Jacqueline 2025
+            </li>
+
+            <li>
+                Design adapted from HTML5 UP
+            </li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<script src="assets/js/main.js"></script>
+```
 
 </body>
 

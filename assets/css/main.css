@@ -1141,3 +1141,115 @@ img {
     border-color: #9dc183;
     color: #111;
 }
+
+/* =========================
+   ARTWORK IMAGE ZOOM
+========================= */
+
+.artwork-image-button {
+    display: block;
+
+    width: fit-content;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: zoom-in;
+}
+
+.artwork-image-button:hover .artwork-detail-image {
+    transform: scale(1.015);
+}
+
+.artwork-detail-image {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.artwork-zoom-note {
+    margin: 8px auto 22px;
+
+    font-size: 0.85rem;
+
+    color: rgba(255,255,255,0.35);
+
+    text-align: center;
+}
+
+.artwork-image-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 45px 45px;
+
+    background: rgba(0,0,0,0.82);
+
+    z-index: 8000;
+
+    cursor: zoom-out;
+}
+
+.artwork-image-modal-overlay.active {
+    display: flex;
+}
+
+.artwork-zoom-image {
+    max-width: min(90vw, 900px);
+
+    max-height: 86vh;
+
+    object-fit: contain;
+
+    box-shadow:
+        0 25px 90px rgba(0,0,0,0.65);
+}
+
+/* MOBILE IMAGE ZOOM */
+
+@media screen and (max-width: 768px) {
+
+    .artwork-image-modal-overlay {
+        padding: 110px 20px 35px;
+    }
+
+    .artwork-zoom-image {
+        max-width: 96vw;
+        max-height: 78vh;
+    }
+
+}
+
+/* =========================
+FINAL ARTWORK PAGE OVERRIDES
+========================= */
+
+/* Keeps the zoom-note close to the image instead of adding extra inherited spacing */
+.artwork-image-button .artwork-detail-image {
+margin-bottom: 0;
+}
+
+/* Keeps Read More hover consistent with sage green site accent */
+.button.small:hover {
+background: #9dc183;
+border-color: #9dc183;
+color: #111;
+}
+
+/* Makes the clickable artwork feel interactive */
+.artwork-image-button:hover .artwork-detail-image {
+transform: scale(1.015);
+box-shadow:
+0 18px 45px rgba(0,0,0,0.25);
+}
