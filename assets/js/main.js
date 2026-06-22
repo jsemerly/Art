@@ -2,60 +2,80 @@
 HEADER SCROLL EFFECT
 ========================= */
 
+
 window.addEventListener("scroll", function () {
 
-```
+
+
+
 const header =
     document.getElementById("header");
 
+
 if (!header) return;
 
+
 if (window.scrollY > 50) {
+
 
     header.style.background =
         "rgba(0,0,0,0.9)";
 
+
 } else {
+
 
     header.style.background =
         "rgba(0,0,0,0.5)";
 
+
 }
-```
+
+
+
 
 });
+
 
 /* =========================
 FEATURED CAROUSEL
 ========================= */
+
 
 const carouselContainers =
 document.querySelectorAll(
 ".featured-carousel-container"
 );
 
+
 carouselContainers.forEach(container => {
 
-```
+
+
+
 const track =
     container.querySelector(
         ".featured-track"
     );
+
 
 const prevButton =
     container.querySelector(
         ".carousel-prev"
     );
 
+
 const nextButton =
     container.querySelector(
         ".carousel-next"
     );
 
+
 const products =
     container.querySelectorAll(
         ".featured-product"
     );
+
 
 if (
     !track ||
@@ -64,182 +84,250 @@ if (
     products.length === 0
 ) return;
 
+
 let currentIndex = 0;
 
+
 function visibleCards() {
+
 
     if (window.innerWidth <= 700) {
         return 1;
     }
 
+
     if (window.innerWidth <= 1000) {
         return 2;
     }
 
+
     return 3;
+
 
 }
 
+
 function updateCarousel() {
 
+
     const gap = 30;
+
 
     const width =
         products[0].offsetWidth + gap;
 
+
     track.style.transform =
         `translateX(-${currentIndex * width}px)`;
 
+
 }
+
 
 nextButton.addEventListener(
     "click",
     () => {
 
+
         const maxIndex =
             products.length - visibleCards();
 
+
         if (currentIndex < maxIndex) {
+
 
             currentIndex++;
 
+
             updateCarousel();
+
 
         }
 
+
     }
 );
+
 
 prevButton.addEventListener(
     "click",
     () => {
 
+
         if (currentIndex > 0) {
+
 
             currentIndex--;
 
+
             updateCarousel();
+
 
         }
 
+
     }
 );
+
 
 window.addEventListener(
     "resize",
     updateCarousel
 );
 
+
 updateCarousel();
-```
+
+
+
 
 });
+
 
 /* =========================
 CONTACT FORM
 ========================= */
 
+
 const contactForm =
 document.getElementById("contactForm");
+
 
 const formStatus =
 document.getElementById("formStatus");
 
+
 if (contactForm) {
 
-```
+
+
+
 contactForm.addEventListener(
     "submit",
     async function (e) {
 
+
         e.preventDefault();
+
 
         const formData =
             new FormData(contactForm);
 
+
         const data = {
+
 
             name:
                 formData.get("name"),
 
+
             email:
                 formData.get("email"),
+
 
             message:
                 formData.get("message")
 
+
         };
 
+
         try {
+
 
             const response =
                 await fetch(
                     "YOUR_GOOGLE_SCRIPT_URL_HERE",
                     {
 
+
                         method: "POST",
 
+
                         mode: "cors",
+
 
                         headers: {
                             "Content-Type":
                                 "text/plain"
                         },
 
+
                         body:
                             JSON.stringify(data)
+
 
                     }
                 );
 
+
             const result =
                 await response.json();
+
 
             if (
                 result.result === "success"
             ) {
 
+
                 formStatus.textContent =
                     "Message sent successfully.";
+
 
                 formStatus.style.color =
                     "#9dc183";
 
+
                 contactForm.reset();
 
+
             } else {
+
 
                 formStatus.textContent =
                     "Something went wrong.";
 
+
                 formStatus.style.color =
                     "red";
 
+
             }
 
+
         } catch (error) {
+
 
             formStatus.textContent =
                 "Connection failed.";
 
+
             formStatus.style.color =
                 "red";
 
+
         }
+
 
     }
 );
-```
+
+
+
 
 }
+
 
 /* =========================
 ARTWORK DATA
 ========================= */
 
+
 const ARTWORKS = [
 
-```
+
+
+
 {
     id: "rework-assignment-red",
     title: "Rework Assignment - Red",
@@ -249,6 +337,7 @@ const ARTWORKS = [
     notes:
         "This section will eventually include the full background, project notes, class context, date, medium, dimensions, process details, and any additional story behind the piece. For now, this is placeholder text so the layout can be tested before final writing is added."
 },
+
 
 {
     id: "reimbursement",
@@ -260,6 +349,7 @@ const ARTWORKS = [
         "Here I will write in more details about my process, assignment details if from school, maybe dates, year, medium, and any other notes I would like to add to give further context to my art. If the text exceeds the size of this box, this box becomes scrollable so the viewer can keep reading."
 },
 
+
 {
     id: "surroundings-patchwork",
     title: "Surroundings Patchwork",
@@ -269,6 +359,7 @@ const ARTWORKS = [
     notes:
         "This piece can eventually describe the visual references, textures, colors, and personal surroundings that influenced the final composition. Placeholder text is being used here to test the read-more popup and spacing."
 },
+
 
 {
     id: "duochromatic-still-life",
@@ -280,6 +371,7 @@ const ARTWORKS = [
         "This future writeup can include the still-life setup, color limitations, assignment requirements, medium, date, and why the objects were arranged this way."
 },
 
+
 {
     id: "silhouette-assignment",
     title: "Silhouette Assignment",
@@ -289,6 +381,7 @@ const ARTWORKS = [
     notes:
         "This section can explain where the silhouettes came from, how they were selected, and what the final paired canvas composition is meant to communicate."
 },
+
 
 {
     id: "dripping-lollipop",
@@ -300,6 +393,7 @@ const ARTWORKS = [
         "This future description can cover the contrast between playful imagery and darker visual tension, plus details about the color palette, scale, and medium."
 },
 
+
 {
     id: "dripping-skull-acrylic",
     title: "Dripping Skull Acrylic",
@@ -309,6 +403,7 @@ const ARTWORKS = [
     notes:
         "This popup will later include more about the skull motif, the dripping paint effect, the acrylic process, and the visual contrast between the dark background and bright color."
 },
+
 
 {
     id: "ethereal-portrait",
@@ -320,6 +415,7 @@ const ARTWORKS = [
         "This section can eventually explain the portrait style, character inspiration, facial details, cloud imagery, and the intended atmosphere of the piece."
 },
 
+
 {
     id: "knome-land",
     title: "Knome Land",
@@ -329,6 +425,7 @@ const ARTWORKS = [
     notes:
         "This placeholder can later be replaced with notes about the imagined world, fantasy elements, color choices, and how the landscape composition developed."
 },
+
 
 {
     id: "open-mind-perspective",
@@ -340,6 +437,7 @@ const ARTWORKS = [
         "This future writeup can cover the perspective choices, city imagery, hidden details, and the concept of opening the mind through layered visual movement."
 },
 
+
 {
     id: "pearl-watercolor",
     title: "Pearl Watercolor",
@@ -349,6 +447,7 @@ const ARTWORKS = [
     notes:
         "This section can later include the pet portrait context, watercolor process, reference image details, and any personal meaning behind the piece."
 },
+
 
 {
     id: "pink-moon",
@@ -360,6 +459,7 @@ const ARTWORKS = [
         "This future description can explain the moon imagery, cloud treatment, color palette, and the dreamy atmosphere of the composition."
 },
 
+
 {
     id: "split-head",
     title: "Split Head",
@@ -369,6 +469,7 @@ const ARTWORKS = [
     notes:
         "This placeholder can later become a fuller explanation of the emotional concept, the divided facial structure, and the meaning behind the flowing visual elements."
 },
+
 
 {
     id: "suburbia-project",
@@ -380,6 +481,7 @@ const ARTWORKS = [
         "This section can eventually include the story behind the suburban setting, the contrast between exterior and interior space, and the project context."
 },
 
+
 {
     id: "more-art-coming-soon",
     title: "More Art Coming Soon",
@@ -389,41 +491,56 @@ const ARTWORKS = [
     notes:
         "More original artwork will be added here soon. This placeholder page confirms that the gallery detail-page system works for future pieces too."
 }
-```
+
+
+
 
 ];
+
 
 /* =========================
 SAFE TEXT HELPERS
 ========================= */
 
+
 function escapeHtml(value) {
 
-```
+
+
+
 return String(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
-```
+
+
+
 
 }
+
 
 /* =========================
 RENDER GALLERY LINKS
 ========================= */
 
+
 function renderGalleryGrid() {
 
-```
+
+
+
 const galleryGrid =
     document.getElementById("galleryGrid");
 
+
 if (!galleryGrid) return;
+
 
 galleryGrid.innerHTML =
     ARTWORKS.map(artwork => {
+
 
         return `
             <a
@@ -431,7 +548,9 @@ galleryGrid.innerHTML =
                 class="gallery-item gallery-link"
             >
 
+
                 <div class="gallery-image-wrapper">
+
 
                     <img
                         src="${escapeHtml(artwork.image)}"
@@ -439,256 +558,344 @@ galleryGrid.innerHTML =
                         class="gallery-image"
                     >
 
+
                     <div class="gallery-overlay">
+
 
                         <h3>
                             ${escapeHtml(artwork.title)}
                         </h3>
 
+
                         <h4>
                             ${escapeHtml(artwork.collection)}
                         </h4>
+
 
                         <p>
                             ${escapeHtml(artwork.caption)}
                         </p>
 
+
                     </div>
+
 
                 </div>
 
+
                 <div class="gallery-title">
+
 
                     <span class="gallery-name">
                         ${escapeHtml(artwork.title)}
                     </span>
 
+
                 </div>
+
 
             </a>
         `;
 
+
     }).join("");
-```
+
+
+
 
 }
 
+
 renderGalleryGrid();
+
 
 /* =========================
 RENDER ARTWORK DETAIL PAGE
 ========================= */
 
+
 function renderArtworkPage() {
 
-```
+
+
+
 const artworkPage =
     document.getElementById("artworkPage");
 
+
 if (!artworkPage) return;
+
 
 const params =
     new URLSearchParams(window.location.search);
 
+
 const artworkId =
     params.get("id");
+
 
 const artwork =
     ARTWORKS.find(item => item.id === artworkId) ||
     ARTWORKS[0];
 
+
 const title =
     document.getElementById("artworkTitle");
+
 
 const collection =
     document.getElementById("artworkCollection");
 
+
 const image =
     document.getElementById("artworkImage");
+
 
 const imageButton =
     document.getElementById("artworkImageButton");
 
+
 const imageModal =
     document.getElementById("artworkImageModal");
+
 
 const zoomImage =
     document.getElementById("zoomArtworkImage");
 
+
 const caption =
     document.getElementById("artworkCaption");
+
 
 const readMoreButton =
     document.getElementById("readMoreButton");
 
+
 const readMoreModal =
     document.getElementById("artworkModal");
+
 
 const modalTitle =
     document.getElementById("modalArtworkTitle");
 
+
 const modalCollection =
     document.getElementById("modalArtworkCollection");
+
 
 const modalCaption =
     document.getElementById("modalArtworkCaption");
 
+
 const modalNotes =
     document.getElementById("modalArtworkNotes");
 
+
 document.title =
     `${artwork.title} | Jacqueline`;
+
 
 if (title) {
     title.textContent =
         artwork.title;
 }
 
+
 if (collection) {
     collection.textContent =
         artwork.collection;
 }
 
+
 if (image) {
     image.src =
         artwork.image;
+
 
     image.alt =
         artwork.title;
 }
 
+
 if (zoomImage) {
     zoomImage.src =
         artwork.image;
 
+
     zoomImage.alt =
         artwork.title;
 }
+
 
 if (caption) {
     caption.textContent =
         artwork.caption;
 }
 
+
 if (modalTitle) {
     modalTitle.textContent =
         artwork.title;
 }
+
 
 if (modalCollection) {
     modalCollection.textContent =
         artwork.collection;
 }
 
+
 if (modalCaption) {
     modalCaption.textContent =
         artwork.caption;
 }
+
 
 if (modalNotes) {
     modalNotes.textContent =
         artwork.notes;
 }
 
+
 function lockPageScroll() {
+
 
     document.body.style.overflow =
         "hidden";
 
+
 }
 
+
 function unlockPageScroll() {
+
 
     document.body.style.overflow =
         "auto";
 
+
 }
+
 
 function openReadMoreModal() {
 
+
     if (!readMoreModal) return;
+
 
     readMoreModal.classList.add("active");
 
+
     lockPageScroll();
 
+
 }
+
 
 function closeReadMoreModal() {
 
+
     if (!readMoreModal) return;
+
 
     readMoreModal.classList.remove("active");
 
+
     unlockPageScroll();
 
+
 }
+
 
 function openImageModal() {
 
+
     if (!imageModal) return;
+
 
     imageModal.classList.add("active");
 
+
     lockPageScroll();
 
+
 }
+
 
 function closeImageModal() {
 
+
     if (!imageModal) return;
+
 
     imageModal.classList.remove("active");
 
+
     unlockPageScroll();
+
 
 }
 
+
 if (readMoreButton && readMoreModal) {
+
 
     readMoreButton.addEventListener(
         "click",
         openReadMoreModal
     );
 
+
     readMoreModal.addEventListener(
         "click",
         function (event) {
+
 
             if (event.target === readMoreModal) {
                 closeReadMoreModal();
             }
 
+
         }
     );
 
+
 }
 
+
 if (imageButton && imageModal) {
+
 
     imageButton.addEventListener(
         "click",
         openImageModal
     );
 
+
     imageModal.addEventListener(
         "click",
         function (event) {
+
 
             if (event.target === imageModal) {
                 closeImageModal();
             }
 
+
         }
     );
 
+
 }
+
 
 document.addEventListener(
     "keydown",
     function (event) {
 
+
         if (event.key !== "Escape") return;
+
 
         if (
             readMoreModal &&
@@ -697,6 +904,7 @@ document.addEventListener(
             closeReadMoreModal();
         }
 
+
         if (
             imageModal &&
             imageModal.classList.contains("active")
@@ -704,10 +912,17 @@ document.addEventListener(
             closeImageModal();
         }
 
+
     }
 );
-```
+
+
+
 
 }
 
+
 renderArtworkPage();
+
+
+
